@@ -1,2 +1,2 @@
 # mylittlepython
-Tinkering
+Tinkering with Python 2.7.10.
