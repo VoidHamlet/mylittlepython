@@ -40,6 +40,24 @@ class TestDictionaryFunctions(unittest.TestCase):
         for key in d:
             pass
 
+    def test_delete_something_not_there(self):
+        d = Dict()
+        d['davin'] = 'green'
+        d['gabriel'] = 'purple'
+        d['mara'] = 'pink'
+        with self.assertRaises(KeyError):
+            del d['kanai']
 			
+    def test_keys(self):
+        d = Dict()
+        d['davin'] = 'green'
+        d['gabriel'] = 'purple'
+        d['mara'] = 'pink'
+        d['kanai'] = 'silver'
+        self.assertEqual(sorted(d.keys()),
+                         sorted(['davin', 'gabriel', 'mara', 'kanai']))
+
+
+
 if __name__ == '__main__':
     unittest.main(exit=False)

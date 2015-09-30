@@ -36,7 +36,10 @@ class Dict:
         row_id = hash(key) % self.n
         row = self.rows[row_id]
         desk = self.desks[row_id]
-        position = row.index(key)
+        try:
+            position = row.index(key)
+        except ValueError:
+            raise KeyError(key)
         del row[position]
         del desk[position]
 
@@ -44,3 +47,8 @@ class Dict:
         for row in self.rows:
             for key in row:
                 yield key
+
+    def keys(self):
+		# We already have an iterable!
+        return list(self)
+
